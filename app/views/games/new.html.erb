@@ -1,2 +1,15 @@
-<h1>Games#new</h1>
-<p>Find me in app/views/games/new.html.erb</p>
+<h1>New game</h1>
+
+<p>Enter the longest english word you can find using only letters in the grid</p>
+<ul>
+<% @letters.each do |letter| %>
+  <li class="letters"><%= letter %></li>
+  <%end %></p>
+</ul>
+<br>
+<form action="/score" method="POST">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <input type="text" name="answer" id="input">
+  <input type="submit" value="Play" id="btn">
+ --></form>
